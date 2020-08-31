@@ -1,13 +1,13 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/docker-existing-docker-compose
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.134.1/containers/docker-existing-docker-compose
 // If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
 {
-	"name": "Existing Docker Compose (Extend)",
+	"name": "Laravel",
 
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
-		"..\\docker-compose.yaml",
+		"../docker-compose.yaml",
 		"docker-compose.yml"
 	],
 
@@ -25,7 +25,11 @@
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": []
+	"extensions": [
+		"calebporzio.better-phpunit",
+		"bmewburn.vscode-intelephense-client",
+		"onecentlin.laravel5-snippets"
+	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
@@ -38,6 +42,7 @@
 
 	// Uncomment the next line to run commands after the container is created - for example installing curl.
 	// "postCreateCommand": "apt-get update && apt-get install -y curl",
+	"postCreateCommand": "apk add git",
 
 	// Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
 	// "remoteUser": "vscode"

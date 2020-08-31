@@ -5,7 +5,9 @@
 /vendor
 dbdata
 .env
+.env.testing
 .env.backup
+.vscode
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
