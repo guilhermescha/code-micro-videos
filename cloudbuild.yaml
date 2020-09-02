@@ -7,10 +7,6 @@ steps:
     name: "gcr.io/cloud-builders/docker"
     args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www']
 
-  - id: "Running docker ps"
-    name: "gcr.io/cloud-builders/docker"
-    args: ['ps']
-
   - id: "Running Composer"
     name: "gcr.io/cloud-builders/docker"
     args: ['exec', '-t', 'app', 'composer', 'install']
@@ -18,6 +14,10 @@ steps:
   - id: "Copying .env"
     name: "gcr.io/cloud-builders/docker"
     args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
+
+  - id: "Copying .env"
+    name: "gcr.io/cloud-builders/docker"
+    args: ['exec', '-t', 'app', 'cp', '.env.testing.example', '.env.testing']
 
   - id: "Running key:generate"
     name: "gcr.io/cloud-builders/docker"
